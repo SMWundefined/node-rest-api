@@ -2,13 +2,10 @@
 const express = require ('express');
 const app = express();
 
-//incoming request has to go through this
-app.use((req, res, next) => {
-    res.status(200).json({
-        message: "It works like a boss!!"
+const productRoutes = require('./api/routes/products');
 
-    });
-});
+//incoming request has to go through this
+app.use('/products', productRoutes);
 
 module.exports = app;
 
